@@ -1,0 +1,13 @@
+server:
+  port: 8182
+  #nacos服务名称
+spring:
+  application:
+    name: stock-nacos
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
