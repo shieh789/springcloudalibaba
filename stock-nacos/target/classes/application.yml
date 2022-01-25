@@ -10,4 +10,4 @@ spring:
       discovery:
         username: nacos
         password: nacos
-        namespace: public
+        namespace: public000000
