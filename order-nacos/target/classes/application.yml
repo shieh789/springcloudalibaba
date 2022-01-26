@@ -11,3 +11,11 @@ spring:
         username: nacos
         password: nacos
         namespace: public
+logging:
+  level:
+    com.shieh.order.feign: debug
+feign:
+  client:
+    config:
+      product-service:
+        loggerLevel: BASIC
