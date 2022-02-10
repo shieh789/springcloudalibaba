@@ -1,21 +1,3 @@
-server:
-  port: 8181
-  #nacos服务名称
 spring:
-  application:
-    name: order-nacos
-  cloud:
-    nacos:
-      server-addr: localhost:8848
-      discovery:
-        username: nacos
-        password: nacos
-        namespace: public
-logging:
-  level:
-    com.shieh.order.feign: debug
-feign:
-  client:
-    config:
-      product-service:
-        loggerLevel: BASIC
+  profiles:
+    active: dev

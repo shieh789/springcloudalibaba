@@ -1,0 +1,18 @@
+server:
+  port: 8181
+logging:
+  level:
+    com.shieh.order.feign: debug
+feign:
+  client:
+    config:
+      product-service:
+        loggerLevel: BASIC
+        # 连接超时时间
+        connectTimeout: 5000
+        # 请求处理超时时间
+        readTimeout: 5000
+
+stock-nacos:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule

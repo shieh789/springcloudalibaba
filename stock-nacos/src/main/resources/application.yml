@@ -1,5 +1,5 @@
 server:
-  port: 8182
+  port: 8184
   #nacos服务名称
 spring:
   application:
@@ -10,4 +10,4 @@ spring:
       discovery:
         username: nacos
         password: nacos
-        namespace: public
+        namespace: dev
