@@ -19,10 +19,13 @@ public class OrderController {
     @Value("${user.password}")
     private String configStr;
 
+    @Value("${student.name}")
+    private String testStr;
+
     @RequestMapping("/queryOrder")
     public String queryOrder(){
         String msg = stockFeignService.reduceStock();
-        System.out.println("配置文本:"+configStr);
+        System.out.println("配置文本:"+configStr+"======"+testStr);
         return "查询订单"+msg+configStr;
     }
 }
