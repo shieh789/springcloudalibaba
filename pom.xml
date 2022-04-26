@@ -5,6 +5,7 @@
     <modules>
         <module>order-nacos</module>
         <module>stock-nacos</module>
+        <module>gateway</module>
     </modules>
     <groupId>com.shieh</groupId>
     <artifactId>springcloudalibaba</artifactId>
