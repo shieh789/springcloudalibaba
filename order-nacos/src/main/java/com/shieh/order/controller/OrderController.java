@@ -1,7 +1,6 @@
 package com.shieh.order.controller;
 
 import com.shieh.order.feign.StockFeignService;
-import com.shieh.order.feign.TestFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -26,9 +25,6 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    TestFeignService testFeignService;
-
     @RequestMapping("/queryOrder")
     public String queryOrder(){
         String msg = stockFeignService.reduceStock();
@@ -40,7 +36,7 @@ public class OrderController {
     public String testRibbon(){
         //String forObject = restTemplate.getForObject("http://stock-nacos/stock/test", String.class);
         //return forObject;
-        String test = testFeignService.test();
+        String test = stockFeignService.test();
         return test;
     }
 }
