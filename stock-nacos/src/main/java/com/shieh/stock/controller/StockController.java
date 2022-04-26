@@ -16,4 +16,11 @@ public class StockController {
         System.out.println("扣减库存");
         return "reduce success";
     }
+
+
+    @RequestMapping("/test")
+    public String test(){
+        System.out.println("测试ribbon");
+        return "test success";
+    }
 }
