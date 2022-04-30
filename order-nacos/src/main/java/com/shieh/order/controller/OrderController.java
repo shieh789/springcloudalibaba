@@ -1,7 +1,10 @@
 package com.shieh.order.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.shieh.order.blockhandler.BlockHandlerForOrder;
+import com.shieh.order.fallback.FallBackForOrder;
 import com.shieh.order.feign.StockFeignService;
-import com.shieh.order.feign.TestFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -17,30 +20,24 @@ public class OrderController {
     @Autowired
     StockFeignService stockFeignService;
 
-    @Value("${user.password}")
-    private String configStr;
-
-    @Value("${student.name}")
-    private String testStr;
-
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    TestFeignService testFeignService;
-
     @RequestMapping("/queryOrder")
+    @SentinelResource(value = "queryOrder",blockHandlerClass = BlockHandlerForOrder.class,
+            blockHandler = "blockHandlerForQueryOrder",
+    fallbackClass = FallBackForOrder.class,
+    fallback = "fallBackForQueryOrder")
     public String queryOrder(){
         String msg = stockFeignService.reduceStock();
-        System.out.println("配置文本:"+configStr+"======"+testStr);
-        return "查询订单"+msg+configStr;
+        return "查询订单"+msg;
     }
 
     @RequestMapping("/testRibbon")
     public String testRibbon(){
         //String forObject = restTemplate.getForObject("http://stock-nacos/stock/test", String.class);
         //return forObject;
-        String test = testFeignService.test();
+        String test = stockFeignService.test();
         return test;
     }
 }

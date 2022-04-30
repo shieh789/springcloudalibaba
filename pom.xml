@@ -5,6 +5,7 @@
     <modules>
         <module>order-nacos</module>
         <module>stock-nacos</module>
+        <module>kafka</module>
         <module>gateway</module>
     </modules>
     <groupId>com.shieh</groupId>
@@ -67,7 +68,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.12.RELEASE</version>
             </plugin>
         </plugins>
     </build>
