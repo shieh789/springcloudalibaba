@@ -34,9 +34,9 @@ public class OrderController {
     }
 
     @RequestMapping("/testRibbon")
+    @SentinelResource(value = "testRibbon",blockHandlerClass = BlockHandlerForOrder.class, blockHandler = "blockHandlerForTestRibbon")
     public String testRibbon(){
-        //String forObject = restTemplate.getForObject("http://stock-nacos/stock/test", String.class);
-        //return forObject;
+        int sa=1/0;
         String test = stockFeignService.test();
         return test;
     }
