@@ -14,7 +14,7 @@ spring:
       routes:
           - id: order_route # 路由的唯一标识
             uri: lb://order-nacos # 需要转发的地址
-            # 配置断言规则，用于路由规则的匹配
+            # 配置断言规则，用于路由规则的匹配0
             predicates:
             - Path=/order-service/**
             filters:

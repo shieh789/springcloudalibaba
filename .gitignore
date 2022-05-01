@@ -1,3 +1,4 @@
 /.idea/
 /order-nacos/target/
 /stock-nacos/target/
+/gateway/target/
