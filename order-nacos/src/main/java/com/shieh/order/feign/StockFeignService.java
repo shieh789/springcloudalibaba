@@ -13,7 +13,7 @@ public interface StockFeignService {
     @RequestMapping("/reduce")
     public String reduceStock();
 
+
     @RequestMapping("/test")
     public String test();
-
 }
