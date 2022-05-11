@@ -12,6 +12,9 @@ feign:
         connectTimeout: 5000
         # 请求处理超时时间
         readTimeout: 5000
+  sentinel:
+    #开启feign对sentinel的支持
+    enabled: true
 
 stock-nacos:
   ribbon:

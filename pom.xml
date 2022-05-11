@@ -5,8 +5,10 @@
     <modules>
         <module>order-nacos</module>
         <module>stock-nacos</module>
-        <module>kafka</module>
         <module>gateway</module>
+        <module>kafka-producer</module>
+        <module>kafka-consumer</module>
+        <module>kafka-producer2</module>
     </modules>
     <groupId>com.shieh</groupId>
     <artifactId>springcloudalibaba</artifactId>

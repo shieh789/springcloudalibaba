@@ -1,12 +1,19 @@
 package com.shieh.order.fallback;
 
-import com.alibaba.csp.sentinel.slots.block.BlockException;
 
-public class FallBackForOrder {
+import com.shieh.order.feign.StockFeignService;
+import org.springframework.stereotype.Component;
 
-    public static String fallBackForQueryOrder(Throwable throwable){
-        throwable.printStackTrace();
-        return "异常处理-----";
+@Component
+public class FallBackForOrder implements StockFeignService {
+
+    @Override
+    public String reduceStock() {
+        return "降级reduceStock啦-----";
     }
 
+    @Override
+    public String test() {
+        return "降级test啦------";
+    }
 }

@@ -1,0 +1,12 @@
+server:
+  port: 8186
+spring:
+  application:
+    name: kafka-producer
+  kafka:
+    bootstrap-servers: 192.168.81.12:9093
+    producer:
+      acks: all
+      # 指定消息key和消息体的编解码方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer

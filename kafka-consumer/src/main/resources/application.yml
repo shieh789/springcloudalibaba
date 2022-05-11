@@ -1,0 +1,16 @@
+server:
+  port: 8188
+spring:
+  application:
+    name: kafka-consumer
+  kafka:
+    bootstrap-servers: 192.168.81.12:9093
+    consumer:
+      group-id: test
+      enable-auto-commit: false
+      auto-commit-interval.ms: 1000
+      # 指定消息key和消息体的编解码方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: manual

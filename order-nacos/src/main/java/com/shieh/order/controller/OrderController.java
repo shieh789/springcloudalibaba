@@ -5,8 +5,8 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.shieh.order.blockhandler.BlockHandlerForOrder;
 import com.shieh.order.fallback.FallBackForOrder;
 import com.shieh.order.feign.StockFeignService;
-import com.shieh.order.feign.TestFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,18 +18,12 @@ import org.springframework.web.client.RestTemplate;
 @RefreshScope
 public class OrderController {
 
-    @Autowired
+    @Qualifier("com.shieh.order.feign.StockFeignService")
     StockFeignService stockFeignService;
 
-    @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
-    TestFeignService testFeignService;
 
     @RequestMapping("/queryOrder")
-    @SentinelResource(value = "queryOrder",blockHandlerClass = BlockHandlerForOrder.class,
-            blockHandler = "blockHandlerForQueryOrder",
+    @SentinelResource(value = "queryOrder",blockHandlerClass = BlockHandlerForOrder.class, blockHandler = "blockHandlerForQueryOrder",
     fallbackClass = FallBackForOrder.class,
     fallback = "fallBackForQueryOrder")
     public String queryOrder(){
